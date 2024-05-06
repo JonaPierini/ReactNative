@@ -3,6 +3,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {StackNavigator} from './presentation/routes/StackNavigator';
 import {DrawerNavigation} from './presentation/routes/DrawerNavigation';
+import {BottomTabNavigation} from './presentation/routes/BottomTabNavigation';
 
 export const App = () => {
   return (
@@ -10,6 +11,7 @@ export const App = () => {
     <NavigationContainer>
       {/* <StackNavigator /> */}
       <DrawerNavigation />
+      {/* <BottomTabNavigation/> */}
     </NavigationContainer>
   );
 };

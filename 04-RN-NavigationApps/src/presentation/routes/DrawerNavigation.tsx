@@ -9,6 +9,7 @@ import {
 } from '@react-navigation/drawer';
 import {Text, useWindowDimensions, View} from 'react-native';
 import {CarScreen} from '../screens/car/CarScreen';
+import {BottomTabNavigation} from './BottomTabNavigation';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,7 +34,11 @@ export const DrawerNavigation = () => {
           paddingHorizontal: 20,
         },
       }}>
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      {/* <Drawer.Screen name="StackNavigator" component={StackNavigator} /> */}
+
+      {/* ACA estan las tab */}
+      <Drawer.Screen name=" Tabs" component={BottomTabNavigation} />
+
       <Drawer.Screen name="Profile" component={ProfileScreen} />
       <Drawer.Screen name="Car" component={CarScreen} />
     </Drawer.Navigator>

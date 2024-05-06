@@ -2,7 +2,7 @@ import {DrawerActions, useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {Pressable, Text, View} from 'react-native';
 
-export const Tabs3Screen = () => {
+export const Tabs1Screen = () => {
   //Para hacer que la tab  tenga el menu hamburguesa. Lo mejor es hacer un componente
 
   const navigation = useNavigation();
@@ -17,9 +17,10 @@ export const Tabs3Screen = () => {
       ),
     });
   }, []);
+
   return (
     <View>
-      <Text>Tab3Screen</Text>
+      <Text>Tab1Screen</Text>
     </View>
   );
 };

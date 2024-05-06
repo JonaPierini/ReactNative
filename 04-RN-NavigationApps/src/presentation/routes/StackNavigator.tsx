@@ -3,6 +3,8 @@ import {ProductsScreen} from '../screens/product/ProductsScreen';
 import {HomeScreen} from '../screens/home/HomeScreen';
 import {SettingScreen} from '../screens/settings/SettingsScreen';
 import {ProductScreen} from '../screens/product/ProductScreen';
+import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
 
 export type RootStackParams = {
   Home: undefined;
@@ -14,6 +16,15 @@ export type RootStackParams = {
 const Stack = createStackNavigator<RootStackParams>();
 
 export const StackNavigator = () => {
+  //como me quedo el titulo de T3 y abajo el Menu con el Home y queda mal con este efecto la remuevo
+
+  const navigator = useNavigation();
+  useEffect(() => {
+    navigator.setOptions({
+      headerShown: false,
+    });
+  }, []);
+
   return (
     <Stack.Navigator
       screenOptions={{

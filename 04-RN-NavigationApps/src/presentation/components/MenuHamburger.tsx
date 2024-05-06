@@ -1,12 +1,9 @@
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
-import {Pressable, Text, View} from 'react-native';
+import {Pressable, Text} from 'react-native';
 
-export const Tabs3Screen = () => {
-  //Para hacer que la tab  tenga el menu hamburguesa. Lo mejor es hacer un componente
-
+export const MenuHamburger = () => {
   const navigation = useNavigation();
-
   useEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -17,9 +14,6 @@ export const Tabs3Screen = () => {
       ),
     });
   }, []);
-  return (
-    <View>
-      <Text>Tab3Screen</Text>
-    </View>
-  );
+
+  return <></>;
 };

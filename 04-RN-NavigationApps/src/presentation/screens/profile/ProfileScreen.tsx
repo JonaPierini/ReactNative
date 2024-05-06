@@ -21,6 +21,7 @@ export const ProfileScreen = () => {
       }}>
       <Text>ProfileScreen</Text>
 
+      {/* Con este navigation dispacha se abre el menu hamburguesa */}
       <PrimaryButton
         handleNavigate={() => navigation.dispatch(DrawerActions.toggleDrawer)}
         label="Abrir Menu"
