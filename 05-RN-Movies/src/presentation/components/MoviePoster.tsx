@@ -23,6 +23,15 @@ Props) => {
 
   return (
     <Pressable
+      style={({pressed}) => ({
+        widht,
+        height,
+        marginHorizontal: 2,
+        marginBottom: 20,
+        paddingHorizontal: 5,
+        //CAMBIA el color cuando estoy seleccionando
+        opacity: pressed ? 0.9 : 1,
+      })}
       onPress={() =>
         navigation.navigate('Details', {
           movieId: movie.id,

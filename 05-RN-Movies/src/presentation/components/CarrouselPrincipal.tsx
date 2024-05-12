@@ -9,7 +9,7 @@ interface Props {
   height?: number;
 }
 
-export const Carrouse = ({movies, height = 440}: Props) => {
+export const CarrousePrincipal = ({movies, height = 440}: Props) => {
   // console.log('MOVIE');
   // console.log(movies);
   return (

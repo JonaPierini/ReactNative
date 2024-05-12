@@ -6,7 +6,7 @@ export const DetailsScreen = (props: any) => {
   console.log(props);
   return (
     <View>
-      <Span text="DetailScreen" />
+      <Span>DetailScreen</Span>
     </View>
   );
 };

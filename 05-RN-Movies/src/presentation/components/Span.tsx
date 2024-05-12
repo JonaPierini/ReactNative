@@ -1,12 +1,13 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native';
 
 type Props = {
-  text: string;
+  children: React.ReactNode;
+  style?: StyleProp<TextStyle>;
 };
 
-export const Span = ({text}: Props) => {
-  return <Text style={style.spanFuente}>{text}</Text>;
+export const Span = (props: Props) => {
+  return <Text style={[style.spanFuente, props.style]}>{props.children}</Text>;
 };
 
 const style = StyleSheet.create({

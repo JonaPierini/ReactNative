@@ -10,6 +10,9 @@ import {moviesUpComingPlayingUseCase} from '../../core/use-casas/movies/upcoming
 /// ACA DIRECTAMENTE SE PUEDE HACER CON UN GET CON AXION O FETCHH Y CHAU
 //ESTO SE HACE PORQUE ESTAMOS TRABAJANDO CON DATA QUE ES EXTERNA Y NO PODEMOS CONTROLAR SI CAMBIA EN UN FUTURO
 
+//PARTE DEL SCROOL INFINITO
+let popularPageNumber = 1;
+
 export const useHookMovies = () => {
   const [nowMovies, setNowMovies] = useState<Movie[]>([]);
   const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
@@ -49,5 +52,15 @@ export const useHookMovies = () => {
     topRatedMovies,
     upcomingMovies,
     isLoading,
+
+    //Methods
+    popularNextPage: async () => {
+      popularPageNumber++;
+      const popularMovies = await moviesPopularPlayingUseCase(movieDBFetcher, {
+        page: popularPageNumber,
+      });
+
+      setPopularMovies(prev => [...prev, ...popularMovies]);
+    },
   };
 };

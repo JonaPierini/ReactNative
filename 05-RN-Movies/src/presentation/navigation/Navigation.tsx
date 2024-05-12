@@ -34,7 +34,7 @@ export const Navigation = () => {
           alignItems: 'center',
           backgroundColor: 'tomato',
         }}>
-        <Span text="Splash"></Span>
+        <Span style={{color: 'white'}}> SPLASH </Span>
       </View>
     );
   }
