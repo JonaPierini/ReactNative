@@ -37,13 +37,6 @@ export const useHookMovies = () => {
     setUpcomingMovies(upcomingMovies);
     //Cargamos la data
     setLoading(false);
-
-    console.log({
-      nowMovies,
-      popularMovies,
-      topRatedMovies,
-      upcomingMovies,
-    });
   };
 
   useEffect(() => {
