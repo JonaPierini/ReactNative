@@ -62,6 +62,7 @@ export const CarrouselHorizontal = ({movies, title, loadNextPage}: Props) => {
         data={movies}
         renderItem={({item}) => (
           <MoviePoster
+            description={item}
             movie={item.poster}
             widht={140}
             height={140}></MoviePoster>

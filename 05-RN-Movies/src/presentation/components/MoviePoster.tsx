@@ -15,11 +15,12 @@ export const MoviePoster = ({
   movie,
   height = 420,
   widht = 300,
+  description,
 }: // description,
 Props) => {
   /// TODO ESE TYPADO VIENDE DIRECTAMENTE DE LA LIBRERIA. ME AYUDA A PONER QUE PAGINA PONER EN navigation.navigate('Detalle)
-  const navigation = useNavigation<NavigationProp<RootStackParams>>();
-  // const navigation = useNavigation<any>();
+  //const navigation = useNavigation<NavigationProp<RootStackParams>>();
+  const navigation = useNavigation<any>();
 
   return (
     <Pressable
@@ -34,8 +35,8 @@ Props) => {
       })}
       onPress={() =>
         navigation.navigate('Details', {
-          movieId: movie.id,
-          // description: description,
+          //movieId: movie.id,
+          description: description,
         })
       }>
       <View style={{...style.imageContainer, height: height, width: widht}}>

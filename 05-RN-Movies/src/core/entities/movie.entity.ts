@@ -9,3 +9,12 @@ export interface Movie {
   poster: any;
   backdrop: string;
 }
+
+//  EXTIENDE TODA LA INTERFACE Y LE AGREGA ESTA NUEVA DATA
+export interface FullMovie extends Movie {
+  genres: string[];
+  duration: number;
+  budget: number;
+  originalTitle: string;
+  productionCompanie: string[];
+}
