@@ -13,6 +13,7 @@ import {Card} from '../../components/ui/Card';
 import {useState} from 'react';
 
 export const TextInputScreen = () => {
+  //  PARA capturar los valores
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -20,8 +21,11 @@ export const TextInputScreen = () => {
   });
 
   return (
+    /// ES necesario para IOS PARA QUE FUNCIONE BIEN EL TEXT, TECLADO, Y SCROLL
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined }>
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      {/* ES PARA hacer scroll y que el teclado no moleste al usuario. 
+      HAY que usarlo cuando trabajamos con textos */}
       <ScrollView>
         <CustomView margin>
           <Title text="Text Inputs" safe />
@@ -32,6 +36,7 @@ export const TextInputScreen = () => {
               placeholder="Nombre completo"
               autoCapitalize={'words'}
               autoCorrect={false}
+              //CAMPUTARAMOS los valores
               onChangeText={value => setForm({...form, name: value})}
             />
 
@@ -68,7 +73,7 @@ export const TextInputScreen = () => {
             <Text>{JSON.stringify(form, null, 2)}</Text>
           </Card>
 
-          <View style={{ height: 20 }} />
+          <View style={{height: 20}} />
 
           <Card>
             <TextInput
@@ -80,8 +85,7 @@ export const TextInputScreen = () => {
           </Card>
         </CustomView>
 
-          <View style={{ height: 20 }} />
-
+        <View style={{height: 20}} />
       </ScrollView>
     </KeyboardAvoidingView>
   );

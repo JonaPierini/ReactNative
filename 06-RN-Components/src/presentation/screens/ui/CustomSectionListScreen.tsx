@@ -1,12 +1,11 @@
-import { CustomView } from '../../components/ui/CustomView';
-import { Title } from '../../components/ui/Title';
-import { Card } from '../../components/ui/Card';
-import { SectionList, Text, useWindowDimensions } from 'react-native';
-import { SubTitle } from '../../components/ui/SubTitle';
-import { colors } from '../../../config/theme/theme';
-import { Separator } from '../../components/ui/Separator';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
+import {CustomView} from '../../components/ui/CustomView';
+import {Title} from '../../components/ui/Title';
+import {Card} from '../../components/ui/Card';
+import {SectionList, Text, useWindowDimensions} from 'react-native';
+import {SubTitle} from '../../components/ui/SubTitle';
+import {colors} from '../../../config/theme/theme';
+import {Separator} from '../../components/ui/Separator';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface Houses {
   title: string;
@@ -90,37 +89,43 @@ const houses: Houses[] = [
   },
 ];
 
-
 export const CustomSectionListScreen = () => {
-
-  const { height } = useWindowDimensions();
-  const { top } = useSafeAreaInsets();
+  const {height} = useWindowDimensions();
+  const {top} = useSafeAreaInsets();
 
   return (
     <CustomView margin>
-      <Title text='Lista de personajes' safe />
+      <Title text="Lista de personajes" safe />
 
       <Card>
-        <SectionList 
-          sections={ houses }
-          keyExtractor={ (item) => item }
-          renderItem={ ({ item }) => <Text style={{ marginVertical: 2 }}>{ item }</Text> }
-
-          renderSectionHeader={ ({section})=> <SubTitle text={ section.title } backgroundColor={ colors.cardBackground } /> }
+        {/* HACE que  el header (titulo) se quede con una posición fija*/}
+        <SectionList
+          sections={houses}
+          keyExtractor={item => item}
+          renderItem={({item}) => (
+            <Text style={{marginVertical: 2}}>{item}</Text>
+          )}
+          //ESTO es la parte de los titulos
+          renderSectionHeader={({section}) => (
+            <SubTitle
+              text={section.title}
+              backgroundColor={colors.cardBackground}
+            />
+          )}
+          //ESTO es la parte de los titulos
           stickySectionHeadersEnabled
-
-          SectionSeparatorComponent={ Separator }
-          ListHeaderComponent={ () => <Title text="Personajes" /> }
-          ListFooterComponent={ () => <Title text={ `Secciones: ${ houses.length }` } /> }
-
-          showsVerticalScrollIndicator={ false }
+          SectionSeparatorComponent={Separator}
+          ListHeaderComponent={() => <Title text="Personajes" />}
+          ListFooterComponent={() => (
+            <Title text={`Secciones: ${houses.length}`} />
+          )}
+          showsVerticalScrollIndicator={false}
+          //ACA PARA NO USAR UN HEIGHT DETERMINADO
           style={{
-            height: height - top - 120
+            height: height - top - 120,
           }}
         />
       </Card>
-
-
     </CustomView>
-  )
-}
+  );
+};

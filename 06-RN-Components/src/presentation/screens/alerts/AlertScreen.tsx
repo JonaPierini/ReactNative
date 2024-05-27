@@ -1,11 +1,10 @@
-import {Alert,Text, View} from 'react-native';
-
+import {Alert, Text, View} from 'react-native';
 
 import {CustomView} from '../../components/ui/CustomView';
 import {Title} from '../../components/ui/Title';
 import {globalStyles} from '../../../config/theme/theme';
 import {Button} from '../../components/ui/Button';
-import { showPrompt } from '../../../config/adapters/prompt.adapter';
+import {showPrompt} from '../../../config/adapters/prompt.adapter';
 
 export const AlertScreen = () => {
   const createTwoButtonAlert = () => {
@@ -20,6 +19,7 @@ export const AlertScreen = () => {
         },
         {text: 'OK', onPress: () => console.log('OK Pressed')},
       ],
+      //OPCIONES
       {},
     );
   };
@@ -48,17 +48,18 @@ export const AlertScreen = () => {
       },
     );
 
+  //PROMPT => ESTE ES UN PRONT DE UN PAQUETE PQ EL NATIVO NO ANDA EN ANDROID
+  //npm i'react-native-prompt-android';
+  //DESPUES hay una adaptación de código que viene de la libreria. Es opcional hacer. Se puede directamente instalar la libreria (esa u otra) y trabajar aca
   const onShowPrompt = () => {
-
     showPrompt({
       title: 'Lorem Ipsum',
       subTitle: 'Nostrud qui duis officia dolor enim.',
-      buttons: [
-        { text: 'Ok', onPress: () => console.log('ok') }
-      ],
-      placeholder: 'Placeholder'
+      // defaulValue: 'Hola',
+      buttons: [{text: 'Ok', onPress: password => console.log(password)}],
+      placeholder: 'Placeholder',
+      // promptType: 'secure-text',
     });
-  
 
     // ! Código nativo
     // Alert.prompt(
@@ -69,7 +70,6 @@ export const AlertScreen = () => {
     //   'Soy el valor por defecto',
     //   'number-pad'
     // );
-
   };
 
   return (

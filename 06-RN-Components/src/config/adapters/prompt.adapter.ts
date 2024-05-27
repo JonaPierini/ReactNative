@@ -11,10 +11,11 @@ interface Options {
 
 interface PromptButton {
   text: string;
-  onPress: () => void;
+  onPress: (value?: any) => void;
   style?: 'cancel' | 'default' | 'destructive';
 }
 
+//Aca esta creada la función del showPront
 export const showPrompt = ({
   title,
   subTitle,
@@ -23,16 +24,11 @@ export const showPrompt = ({
   placeholder,
   defaulValue,
 }: Options) => {
-
-  prompt(
-    title,
-    subTitle,
-    buttons,
-    {
-      type: promptType,
-      cancelable: false,
-      defaultValue: defaulValue,
-      placeholder: placeholder,
-    },
-  );
+  //Este promp viene de la libreria
+  prompt(title, subTitle, buttons, {
+    type: promptType,
+    cancelable: false,
+    defaultValue: defaulValue,
+    placeholder: placeholder,
+  });
 };

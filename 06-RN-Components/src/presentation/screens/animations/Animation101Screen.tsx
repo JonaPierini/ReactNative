@@ -1,49 +1,60 @@
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../../../config/theme/theme';
+import {
+  Animated,
+  Easing,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import {colors} from '../../../config/theme/theme';
 
-import { useAnimation } from '../../hooks/useAnimation';
-
+import {useAnimation} from '../../hooks/useAnimation';
 
 export const Animation101Screen = () => {
-
-  const { fadeIn, fadeOut, animatedOpacity, animatedTop, startMovingTopPosition } = useAnimation();
-
+  const {
+    fadeIn,
+    fadeOut,
+    animatedOpacity,
+    animatedTop,
+    startMovingTopPosition,
+  } = useAnimation();
 
   return (
-    <View style={ styles.container }>
-      
-      <Animated.View style={[
-        styles.purpleBox,
-        {
-          opacity: animatedOpacity,
-          transform: [{
-            translateY: animatedTop
-          }]
-        }
-      ]}/>
+    <View style={styles.container}>
+      <Animated.View
+        style={[
+          styles.purpleBox,
+          {
+            opacity: animatedOpacity,
+            transform: [
+              {
+                translateY: animatedTop,
+              },
+            ],
+          },
+        ]}
+      />
 
-      <Pressable onPress={ () => {
-        fadeIn({});
-        startMovingTopPosition({ 
-          initialPosition: -100, 
-          easing: Easing.elastic(1),
-          duration: 750
-        });
-
-      }} style={{ marginTop: 10 }}>
+      <Pressable
+        onPress={() => {
+          fadeIn({});
+          //ESTA ES LA PARTE DEL MOVIMIENTO
+          startMovingTopPosition({
+            initialPosition: -100,
+            easing: Easing.elastic(1),
+            duration: 750,
+          });
+        }}
+        style={{marginTop: 10}}>
         <Text>FadeIn</Text>
       </Pressable>
 
-      <Pressable onPress={ ()=> fadeOut({}) } style={{ marginTop: 10 }}>
+      <Pressable onPress={() => fadeOut({})} style={{marginTop: 10}}>
         <Text>FadeOut</Text>
       </Pressable>
-      
     </View>
-  )
-}
-
-
-
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -55,5 +66,5 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     width: 150,
     height: 150,
-  }
-})
+  },
+});

@@ -17,6 +17,7 @@ export const MenuItem = ({
   name,
   icon,
   component,
+  //ISFIRST y ISLAST => son estilos
   isFirst = false,
   isLast = false,
 }: Props) => {

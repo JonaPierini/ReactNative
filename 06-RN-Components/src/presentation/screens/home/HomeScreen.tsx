@@ -67,6 +67,8 @@ const uiMenuItems = [
   },
 ];
 
+//SI TENEMOS MUCHOS elementos es mejor usar un FLATLIST y NO un SCROLLVIEW ya que el SCROLLVIEW carga todos los elemntos de una. EL FLATLIST lo renderiza bajo demanda
+
 export const HomeScreen = () => {
   return (
     <View style={[globalStyles.mainContainer]}>
@@ -78,16 +80,21 @@ export const HomeScreen = () => {
           menuItems
           uiMenuItems */}
 
+          {/* PRIMER mapeo */}
           {animationMenuItems.map((item, index) => (
             <MenuItem
               key={item.component}
+              //LE pasamos directamente todas las propiedades {...item} en vez de pasarle, el name, icon y componente
               {...item}
+              //ACA hago si es el primero y despues si es el último. Es para manejar los estilos
               isFirst={index === 0}
               isLast={index === animationMenuItems.length - 1}
             />
           ))}
 
           <View style={{marginTop: 30}} />
+
+          {/* SEGUNDO mapeo */}
           {uiMenuItems.map((item, index) => (
             <MenuItem
               key={item.component}
@@ -98,6 +105,8 @@ export const HomeScreen = () => {
           ))}
 
           <View style={{marginTop: 30}} />
+
+          {/* TERCER mapeo */}
           {menuItems.map((item, index) => (
             <MenuItem
               key={item.component}
