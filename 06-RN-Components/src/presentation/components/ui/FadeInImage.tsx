@@ -28,6 +28,7 @@ export const FadeInImage = ({uri, style}: Props) => {
         />
       )}
 
+      {/* IMAGENES animadas */}
       <Animated.Image
         source={{uri}}
         onLoadEnd={() => {
