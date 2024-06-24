@@ -1,6 +1,11 @@
 # OSX
 #
 .DS_Store
+.env
+
+#ACA LO SACO POR UNA DECISIÓN MIA A ESTOS DOS
+.env.d.test
+.env.template
 
 # Xcode
 #

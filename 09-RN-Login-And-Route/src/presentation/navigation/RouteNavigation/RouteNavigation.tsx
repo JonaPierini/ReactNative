@@ -1,22 +1,33 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
-import {View, Text} from 'react-native';
 import {ProductScreen} from '../../screen/product/ProductScreen';
 import {SettingScreen} from '../../screen/setting/SettingScreen';
 import {HomeScreen} from '../../screen/home/HomeScreen';
+import {ProductNavigation} from '../ProductNavigation/ProductNavigation';
 
-const Tab = createBottomTabNavigator();
+export type RouteNavigationParams = {
+  HomeScreen: undefined;
+  SettingScreen: undefined;
+  ProductNavigation: undefined;
+};
+
+const Tab = createBottomTabNavigator<RouteNavigationParams>();
 
 export const RouteNavigation = () => {
   return (
     <Tab.Navigator
+      initialRouteName="HomeScreen"
       screenOptions={{
         unmountOnBlur: true,
         tabBarHideOnKeyboard: true,
         headerShown: false,
       }}>
       <Tab.Screen name={'HomeScreen'} component={HomeScreen} />
-      <Tab.Screen name={'ProductScreen'} component={ProductScreen} />
+      <Tab.Screen
+        options={{tabBarLabel: 'Hola'}}
+        name={'ProductNavigation'}
+        component={ProductNavigation}
+      />
       <Tab.Screen name={'SettingScreen'} component={SettingScreen} />
     </Tab.Navigator>
   );
