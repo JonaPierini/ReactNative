@@ -12,7 +12,7 @@ const appCreateClient = axios.create({
   //LA BASE  de la URL a usar
   baseURL: API_URL,
   // baseURL: PLATAFORMA,
-  //HEADERS que en nuestro caso tienen una apikey
+  //HEADERS que en nuestro caso tienen una apikey - test
   headers: {
     'Content-Type': 'application/json',
     'X-API-Key': API_KEY,
